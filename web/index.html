@@ -19,6 +19,15 @@
         <div class="topbar-note"><span class="live-dot"></span>研究版 · 数据待持续补齐</div>
       </header>
 
+      <section class="filter-bar panel" aria-label="管理者筛选器">
+        <div class="filter-intro"><p class="eyebrow">CONTROL ROOM</p><strong>我的观察口径</strong><span id="filter-summary">全深圳 · 商品房 · 不限预算</span></div>
+        <label class="filter-field"><span>关注区域</span><select id="zone-filter"><option value="all">全深圳</option><option value="baoan">宝安西部走廊</option><option value="guangming">光明片区</option></select></label>
+        <label class="filter-field"><span>住房类型</span><select id="home-filter"><option value="commodity">商品房</option><option value="talent">人才房</option></select></label>
+        <label class="filter-field"><span>总价上限</span><select id="budget-filter"><option value="999">不限预算</option><option value="500">500 万以内</option><option value="400">400 万以内</option><option value="300">300 万以内</option></select></label>
+        <label class="filter-field"><span>通勤上限</span><select id="commute-filter"><option value="999">不限通勤</option><option value="45">45 分钟以内</option><option value="30">30 分钟以内</option></select></label>
+        <button id="reset-filters" class="reset-btn" type="button">重置</button>
+      </section>
+
       <section class="kpi-grid" aria-label="全局指标">
         <article class="kpi-card accent"><span>当前判断</span><strong>核心分化</strong><small>深圳不是一个统一房价市场</small></article>
         <article class="kpi-card"><span>优先观察</span><strong>宝安中心</strong><small>成熟度与二手流动性更强</small></article>
@@ -30,7 +39,7 @@
         <div class="map-panel panel">
           <div class="panel-heading">
             <div><p class="eyebrow">01 / MARKET MAP</p><h2>深圳板块全局</h2></div>
-            <div class="legend"><span><i class="legend-dot grade-a"></i>A 核心</span><span><i class="legend-dot grade-b"></i>B 可研究</span><span><i class="legend-dot grade-c"></i>C 谨慎</span></div>
+            <div class="legend"><span><i class="legend-dot grade-a"></i>A 核心</span><span><i class="legend-dot grade-b"></i>B 可研究</span><span><i class="legend-dot grade-c"></i>C 谨慎</span><span><i class="legend-line"></i>就业/通勤走廊</span></div>
           </div>
           <div id="map" class="map-stage" aria-label="深圳真实地理底图与房产板块标记"></div>
         </div>
@@ -47,7 +56,7 @@
 
       <section class="lower-grid">
         <article class="panel comparison-panel">
-          <div class="panel-heading compact"><div><p class="eyebrow">03 / PORTFOLIO VIEW</p><h2>板块横向比较</h2></div><span class="muted">研究阶段 · 非投资承诺</span></div>
+          <div class="panel-heading compact"><div><p class="eyebrow">03 / PORTFOLIO VIEW</p><h2>板块横向比较</h2></div><span class="muted" id="result-count">6 个板块 · 研究阶段</span></div>
           <div class="table-wrap"><table><thead><tr><th>板块</th><th>保值</th><th>价格带</th><th>流动性</th><th>管理者动作</th></tr></thead><tbody id="comparison-body"></tbody></table></div>
         </article>
         <article class="panel decision-panel">
