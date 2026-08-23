@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="2027 深圳买房板块地图驾驶舱" />
+    <title>深圳买房地图驾驶舱 · 2027</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">RESIDENTIAL STRATEGY · 2027</p>
+          <h1>深圳买房地图驾驶舱</h1>
+          <p class="subhead">给管理者的一张图：先看全局，再看板块，最后才看具体房源。</p>
+        </div>
+        <div class="topbar-note"><span class="live-dot"></span>研究版 · 数据待持续补齐</div>
+      </header>
+
+      <section class="kpi-grid" aria-label="全局指标">
+        <article class="kpi-card accent"><span>当前判断</span><strong>核心分化</strong><small>深圳不是一个统一房价市场</small></article>
+        <article class="kpi-card"><span>优先观察</span><strong>宝安中心</strong><small>成熟度与二手流动性更强</small></article>
+        <article class="kpi-card"><span>性价比变量</span><strong>光明人才房</strong><small>低成本，但必须核验产权规则</small></article>
+        <article class="kpi-card"><span>主要风险</span><strong>可替代供应</strong><small>外围二手房会与新房竞争</small></article>
+      </section>
+
+      <section class="workspace">
+        <div class="map-panel panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">01 / MARKET MAP</p><h2>深圳板块全局</h2></div>
+            <div class="legend"><span><i class="legend-dot grade-a"></i>A 核心</span><span><i class="legend-dot grade-b"></i>B 可研究</span><span><i class="legend-dot grade-c"></i>C 谨慎</span></div>
+          </div>
+          <div id="map" class="map-stage" aria-label="深圳真实地理底图与房产板块标记"></div>
+        </div>
+
+        <aside class="detail-panel panel" aria-live="polite">
+          <div class="detail-top"><div><p class="eyebrow">02 / SELECTED ZONE</p><h2 id="detail-name">宝安中心</h2></div><span id="detail-grade" class="grade-badge grade-a-bg">A</span></div>
+          <p id="detail-position" class="position">优先研究 · 成熟核心商品房</p>
+          <p id="detail-summary" class="detail-summary"></p>
+          <div class="signal-grid"><div><span>价格带</span><strong id="detail-price"></strong></div><div><span>流动性</span><strong id="detail-liquidity"></strong></div><div><span>风险</span><strong id="detail-risk"></strong></div><div><span>保值初评</span><strong id="detail-grade-copy"></strong></div></div>
+          <div class="tag-row" id="detail-tags"></div>
+          <div class="next-check"><span class="check-icon">↗</span><div><strong>下一步核查</strong><p id="detail-next"></p></div></div>
+        </aside>
+      </section>
+
+      <section class="lower-grid">
+        <article class="panel comparison-panel">
+          <div class="panel-heading compact"><div><p class="eyebrow">03 / PORTFOLIO VIEW</p><h2>板块横向比较</h2></div><span class="muted">研究阶段 · 非投资承诺</span></div>
+          <div class="table-wrap"><table><thead><tr><th>板块</th><th>保值</th><th>价格带</th><th>流动性</th><th>管理者动作</th></tr></thead><tbody id="comparison-body"></tbody></table></div>
+        </article>
+        <article class="panel decision-panel">
+          <div class="panel-heading compact"><div><p class="eyebrow">04 / DECISION LENS</p><h2>买哪种房？</h2></div></div>
+          <div class="toggle" role="tablist" aria-label="住房类型"><button class="toggle-btn active" data-path="commodity">商品房</button><button class="toggle-btn" data-path="talent">人才房</button></div>
+          <div class="decision-copy"><span class="decision-label" id="path-label">适合：看重流动性与换房弹性</span><h3 id="path-title">买地段，也买退出权</h3><p id="path-copy">商品房的核心价值是市场化流动性。预算允许时，宁可缩小面积，也优先保证就业可达性、成熟配套和二手接盘能力。</p></div>
+          <ul class="checklist" id="path-checklist"><li>核对真实成交，不用平台挂牌均价代替</li><li>测算月供压力与 8—10 年持有周期</li><li>检查楼龄、物业、噪音、户型和产权</li></ul>
+        </article>
+      </section>
+
+      <footer class="footer-note"><span>下一版建议：接入真实成交、2021 高点跌幅、供应量、地铁通勤与人才房项目文件。</span><a href="../notes/深圳买房分析方案.md">打开完整分析方案 ↗</a></footer>
+    </main>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
+
