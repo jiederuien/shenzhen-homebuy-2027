@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10233f">
+<meta name="description" content="从经营痛点到业务流程、数字化方案和项目交付的企业数字化全景演示。">
+<title>企业数字化全景 | 个人方法论与业务架构</title>
+<style>
+:root{--navy:#12243e;--navy2:#203a5b;--blue:#2869d1;--ink:#1e3047;--muted:#687a90;--border:#dde5f0;--canvas:#f3f6fb;--white:#fff;--teal:#0c9b91;--orange:#d78b35;--shadow:0 10px 36px rgba(24,53,91,.055)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);font:15px/1.62 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:var(--ink)}button{font:inherit}button:focus-visible{outline:3px solid #89b6ff;outline-offset:3px}button{cursor:pointer}
+.shell{display:grid;grid-template-columns:248px minmax(0,1fr);min-height:100vh}.sidebar{background:var(--navy);padding:32px 18px;color:white;display:flex;flex-direction:column;gap:30px}.brand{padding:0 12px}.brand .mark{width:42px;height:42px;background:#2f71de;border-radius:13px;display:grid;place-items:center;font-size:22px;font-weight:800;box-shadow:0 7px 22px #0d192b}.brand h1{font-size:16px;letter-spacing:.03em;margin:16px 0 2px}.brand p{font-size:11px;line-height:1.5;color:#b5c4d8;margin:0}.side-label{font-size:10px;letter-spacing:.16em;color:#90a6c0;padding:0 14px;margin-bottom:8px}.nav{display:grid;gap:7px}.nav button{width:100%;text-align:left;border:0;background:transparent;color:#bed0e6;border-radius:12px;padding:12px 14px;display:flex;gap:13px;align-items:center;font-weight:600}.nav button .num{font-size:11px;color:#91a7c2}.nav button.active{background:#294b78;color:#fff;box-shadow:inset 3px 0 #72acff}.nav button.active .num{color:#b6d3ff}.side-foot{margin-top:auto;border-top:1px solid #38506c;padding:19px 10px 0;color:#adc0d6;font-size:11px;line-height:1.8}.side-foot strong{color:#fff}
+.workspace{min-width:0;padding:0 38px 44px}.topbar{height:76px;display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--border);margin-bottom:29px}.crumb{font-size:12px;color:#657b96;font-weight:650;letter-spacing:.04em}.top-right{display:flex;gap:9px;flex-wrap:wrap}.tag{font-size:11px;font-weight:700;border:1px solid #d7e2f0;border-radius:30px;padding:5px 11px;background:#fff;color:#5d748e}.tag.blue{color:#1f5eb5;background:#e9f1ff;border-color:#cbdcff}.tag.amber{color:#965c16;background:#fff4e3;border-color:#f1d7a5}.page{max-width:1300px;margin:auto}.eyebrow{text-transform:uppercase;letter-spacing:.17em;font-size:11px;font-weight:800;color:var(--blue)}.hero{display:grid;grid-template-columns:1.65fr .9fr;gap:18px;margin-bottom:23px}.hero-main{background:linear-gradient(115deg,#17365f,#23558d 82%);color:white;min-height:260px;border-radius:19px;padding:35px 37px;position:relative;overflow:hidden}.hero-main:after{content:"";position:absolute;border:1px solid #8bbee966;border-radius:50%;width:350px;height:350px;right:-135px;top:-85px;box-shadow:0 0 0 45px #8bbee911,0 0 0 95px #8bbee90d}.hero-main .eyebrow{color:#a8d6ff}.hero-main h2{position:relative;z-index:1;font-size:clamp(25px,2.7vw,38px);max-width:660px;letter-spacing:-.02em;line-height:1.35;margin:15px 0 18px}.hero-main p{position:relative;z-index:1;color:#d3e2f3;max-width:640px;font-size:14px;margin:0}.hero-aside{background:#fff;border:1px solid var(--border);border-radius:19px;padding:28px;box-shadow:var(--shadow)}.hero-aside h3{font-size:15px;margin:0 0 17px}.principle{border-left:3px solid #bed4f7;padding:0 0 0 13px;margin-bottom:16px}.principle strong{display:block;font-size:14px;color:#1b3f72}.principle span{font-size:12px;color:#728498}.principle:last-child{margin-bottom:0}
+.section{margin-bottom:24px}.section-title{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:0 0 15px}.section-title h2{font-size:20px;letter-spacing:-.02em;margin:0}.section-title p{font-size:12px;color:#8391a4;margin:3px 0 0}.panel{background:#fff;border:1px solid var(--border);border-radius:17px;box-shadow:var(--shadow)}.domain-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.domain-card{border:1px solid var(--border);background:#fff;min-height:135px;border-radius:15px;padding:21px;text-align:left;display:flex;flex-direction:column;gap:8px;transition:transform .16s,border-color .16s,box-shadow .16s}.domain-card:hover{transform:translateY(-2px);border-color:#91b9ed;box-shadow:var(--shadow)}.domain-icon{font-size:19px;background:#e8f0fc;color:#2862b1;border-radius:9px;display:grid;place-items:center;width:33px;height:33px}.domain-title{font-size:16px;font-weight:800}.domain-desc{font-size:12px;color:#7890a7}.domain-card .open{margin-top:auto;font-size:11px;font-weight:750;color:var(--blue)}.tracks{display:grid;grid-template-columns:1fr 1fr;gap:13px}.track{border:1px solid var(--border);border-radius:17px;background:#fff;padding:23px;text-align:left;position:relative}.track:hover{border-color:#8fb4e8}.track .track-id{font-size:11px;letter-spacing:.12em;font-weight:800;color:#4677b7}.track h3{margin:10px 0 5px;font-size:16px}.track p{font-size:12px;color:#73899d;margin:0 0 16px}.track .chain{font-size:12px;color:#376da9;font-weight:650;line-height:1.8}.track .go{position:absolute;right:18px;top:21px;color:#2869d1}.notice{margin:10px 0 20px;padding:12px 16px;background:#fff8eb;border:1px solid #f1ddbd;color:#89622a;border-radius:11px;font-size:12px}
+.section-head{margin:0 0 23px}.section-head h2{font-size:clamp(23px,2.5vw,32px);line-height:1.3;margin:9px 0 8px}.section-head p{font-size:14px;color:var(--muted);margin:0}.bar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:17px}.pill{border:1px solid #d5e1ee;background:#fff;border-radius:100px;font-size:12px;color:#60748d;padding:8px 14px;font-weight:650}.pill.active{color:#fff;background:#2567c6;border-color:#2567c6}.flow-scroll{overflow-x:auto;padding:5px 2px 14px}.flow-row{display:flex;align-items:stretch;min-width:max-content;gap:0}.flow-wrap{display:flex;align-items:center}.flow-step{width:166px;min-height:118px;border:1px solid #dbe5f0;background:#fff;border-radius:14px;padding:16px 14px;text-align:left;transition:.15s}.flow-step.active{background:#e9f2ff;border:2px solid #347bdd;padding:15px 13px}.flow-step .id{font-size:10px;color:#6484ae;font-weight:800;display:block;margin-bottom:11px}.flow-step .name{display:block;font-size:14px;font-weight:800;line-height:1.4}.flow-step .mini{font-size:11px;color:#7189a1;display:block;margin-top:7px}.arrow{color:#6e97c9;font-size:21px;padding:0 8px}.two-col{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(280px,.8fr);gap:15px}.detail{padding:24px}.detail h3{font-size:18px;margin:2px 0 18px}.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.fact{background:#f6f9fd;border:1px solid #e8edf5;border-radius:11px;padding:13px}.fact span{display:block;color:#8595a9;font-size:11px;font-weight:700;margin-bottom:4px}.fact strong{font-size:13px;line-height:1.65}.insight{padding:23px}.insight h3{font-size:15px;margin:2px 0 13px}.insight p{font-size:13px;color:#627c95;line-height:1.9;margin:0 0 13px}.insight .highlight{border-left:3px solid #2b78d4;padding:9px 12px;background:#f2f7ff;color:#335d8a;font-size:12px;margin-top:15px}.grid6{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.phase{padding:18px;text-align:left;background:#fff;border:1px solid var(--border);border-radius:13px;min-height:118px}.phase.active{background:#ecf4ff;border-color:#4b8be2}.phase .n{color:#3478ce;font-size:11px;font-weight:800}.phase strong{display:block;margin:8px 0 3px;font-size:15px}.phase small{color:#8594a5;font-size:11px}.case-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.case-button{text-align:left;padding:22px;background:#fff;border:1px solid var(--border);border-radius:15px}.case-button.active{border-color:#327bd7;background:#f2f7ff}.case-button h3{font-size:16px;margin:12px 0 7px}.case-button p{font-size:12px;color:#6d8199;margin:0}.case-button .status{font-size:11px;color:#a76d20;font-weight:700}.case-story{padding:25px;margin-top:15px}.case-story h3{font-size:19px;margin:0 0 15px}.story-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.story-block{border:1px solid #e0e8f3;background:#f9fbff;padding:17px;border-radius:12px}.story-block strong{display:block;font-size:13px;color:#285a98;margin-bottom:6px}.story-block p{margin:0;font-size:13px;color:#647890;line-height:1.8}.method-line{font-size:12px;color:#56799c;margin:18px 0 0}.footer{font-size:11px;color:#8292a8;margin-top:30px;border-top:1px solid var(--border);padding-top:18px}
+@media(max-width:1020px){.shell{grid-template-columns:205px minmax(0,1fr)}.workspace{padding:0 20px 35px}.hero{grid-template-columns:1fr}.hero-main{min-height:225px}.hero-aside{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:20px}.hero-aside h3{grid-column:1/-1;margin:0}.principle{margin:0}}
+@media(max-width:720px){.shell{display:block}.sidebar{padding:15px;gap:12px}.brand{display:flex;align-items:center;gap:12px;padding:0}.brand .mark{width:35px;height:35px;font-size:17px}.brand h1{margin:0;font-size:13px}.brand p{display:none}.side-label,.side-foot{display:none}.nav{grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}.nav button{padding:9px 5px;justify-content:center;border-radius:9px;font-size:11px}.nav button .num{display:none}.workspace{padding:0 12px 30px}.topbar{height:57px;margin-bottom:16px}.tag{padding:3px 7px}.tag.hide-small{display:none}.hero-main{padding:24px;min-height:220px}.hero-main h2{font-size:27px}.hero-aside{display:none}.domain-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.domain-card{padding:16px;min-height:124px}.tracks,.two-col,.case-grid{grid-template-columns:1fr}.detail-grid,.story-grid{grid-template-columns:1fr}.grid6{grid-template-columns:repeat(2,minmax(0,1fr))}.section-head h2{font-size:25px}.detail,.insight{padding:18px}}
+@media(max-width:380px){.domain-grid,.grid6{grid-template-columns:1fr}.top-right .tag.amber{display:none}.nav button{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar" aria-label="网站主导航">
+  <div class="brand"><div class="mark" aria-hidden="true">EA</div><div><h1>企业数字化全景</h1><p>BUSINESS × DELIVERY × TECHNOLOGY</p></div></div>
+  <div><div class="side-label">EXPLORE / 导览</div><nav class="nav" id="nav" aria-label="一级导航">
+    <button type="button" data-page="overview" class="active"><span class="num">01</span>企业全景</button>
+    <button type="button" data-page="process"><span class="num">02</span>业务流程</button>
+    <button type="button" data-page="governance"><span class="num">03</span>项目治理</button>
+    <button type="button" data-page="cases"><span class="num">04</span>实战案例</button>
+  </nav></div>
+  <div class="side-foot"><strong>方法核心</strong><div>识别经营问题 → 梳理业务架构 → 选择方案 → 项目交付 → 业务验收</div></div>
+</aside>
+<div class="workspace">
+  <header class="topbar"><div class="crumb">ENTERPRISE DIGITALIZATION / KNOWLEDGE MAP</div><div class="top-right"><span class="tag blue">交互式方法展示</span><span class="tag amber">示例数据</span><span class="tag hide-small">无需联网</span></div></header>
+  <main id="app" class="page" tabindex="-1" aria-live="polite"></main>
+  <footer class="footer">个人数字化方法论演示 · 示例结构不代表任何企业的正式制度、实际系统配置或已验收成果；本页不采集数据、无外部依赖。</footer>
+</div>
+</div>
+<script>
+(function(){
+"use strict";
+var app=document.getElementById("app");
+var domains=[
+{id:"sales",name:"销售",symbol:"↗",desc:"客户需求 · 报价 · 订单 · 回款"},
+{id:"research",name:"研发",symbol:"◇",desc:"产品设计 · BOM · 工程变更"},
+{id:"purchase",name:"采购",symbol:"▤",desc:"需求计划 · 供应商 · 到货"},
+{id:"production",name:"生产",symbol:"⚙",desc:"排产 · 领料 · 制造 · 完工"},
+{id:"warehouse",name:"仓储",symbol:"▣",desc:"收发存 · 库位 · 库存追溯"},
+{id:"finance",name:"财务",symbol:"¥",desc:"应收应付 · 成本 · 核算结账"}
+];
+function S(name,role,system,input,output,rule,risk){return {name:name,role:role,system:system,input:input,output:output,rule:rule,risk:risk};}
+var flows={
+sales:[
+S("客户需求","销售","CRM（候选）","客户线索","商机/需求记录","确认客户、场景及需求边界","需求不完整导致反复修改"),
+S("销售报价","销售/技术","CRM / 报价工具","需求/产品规则","报价单","价格、折扣、审批权限需明确","配置价格与正式批准价格混淆"),
+S("销售订单","商务/销售","ERP（候选）","客户确认的报价/合同","销售订单","订单版本、数量、交期、付款条件受控","销售与生产口径不一致"),
+S("发货出库","仓储/物流","ERP / WMS（候选）","销售订单/发货通知","出库记录","实物发出与系统审核事件分开核实","缺货、分批出库与退货"),
+S("应收确认","财务","ERP 财务（候选）","交付/开票条件","应收/发票记录","区分开票、收入确认与应收核算","业务与财务凭据无法核对"),
+S("收款核销","财务","ERP / 资金系统（候选）","银行收款信息","收款及核销记录","按客户、单据和金额建立对应关系","部分收款与跨单核销")],
+research:[
+S("产品需求","产品/研发","PLM / 需求工具","市场/客户需求","设计任务","需求范围和评审责任明确","客户变更未纳入版本管理"),
+S("产品设计","研发","PLM / CAD","设计任务","图纸与设计 BOM","设计批准与可生产版本分开","设计图纸和生产依据不一致"),
+S("BOM 发布","研发/工程","PLM → ERP（候选）","批准设计 BOM","生产 BOM","验证生效日期、版本和变更范围","物料/替代料映射异常"),
+S("工程变更","研发/生产","PLM / ERP","变更申请及影响分析","新版本/执行记录","区分在制、在库和新订单受影响范围","变更传播不完整")],
+purchase:[
+S("采购需求","计划/业务","ERP / MRP","需求计划/缺料信号","采购申请","需求来源与批准规则清晰","重复申购"),
+S("询价比价","采购","SRM / ERP","采购申请及供应商资料","比价与定点决策","分开价格建议与采购批准权","价格与交期不可比"),
+S("采购订单","采购","ERP","批准供应商/价格","采购订单","付款、交期、批次与质量条款","变更未通知需求部门"),
+S("到货验收","仓库/品质","WMS / QMS / ERP","采购订单和实物","收货/检验记录","合格、待检与不合格库存分开","到货数量与质量不符"),
+S("应付结算","财务","ERP 财务","收货、发票、合同","应付及付款记录","单据匹配、差异和核销需有依据","账实与票据不一致")],
+production:[
+S("生产计划","计划","ERP / APS","销售需求/库存","生产工单","产能、交期、用料版本可追溯","排程冲突"),
+S("领料发料","仓储/车间","ERP / WMS","生产工单/BOM","领料与实发记录","批次、超领、补料受控","实物与系统库存不符"),
+S("制造执行","生产","MES（候选）","工单、物料和作业指导","工序执行记录","工序、设备、人员与质量记录","跨工序状态丢失"),
+S("检验与完工","品质/生产","MES / QMS / ERP","产品与检验结果","合格/不合格、入库记录","质量放行与库存可用状态分开","未完成检验即提前入库")],
+warehouse:[
+S("入库登记","仓库","WMS / ERP","收货/生产完工记录","入库单及批次","来源单据和实收差异可追溯","漏录、重复入库"),
+S("库位保管","仓库","WMS（候选）","库存批次与库位","库位与结存","先进先出/批次规则按业务确认","账、物、位不一致"),
+S("出库作业","仓库/业务","WMS / ERP","销售/生产等有效需求","拣货及出库记录","审批与实物交付责任清楚","错误批次、超发、少发"),
+S("盘点调整","仓库/财务","WMS / ERP","实物盘点与系统结存","盘盈亏处理记录","差异审批、成本影响和追责分开","直接改库存掩盖根因")],
+finance:[
+S("业务事实","销售/采购/仓储","业务系统","订单、出入库、交付","有效业务事件","原始数据、事件时间与单据关系可回溯","业务发生但未及时记录"),
+S("应收应付","财务","ERP 财务","业务单据/发票","往来余额","账龄、核销、暂估和异常区分","业务与财务口径不统一"),
+S("成本核算","成本会计","ERP 成本","领料、产出、费用","成本归集与分配","成本对象和分摊规则需确认","跨期、漏单、负库存"),
+S("凭证结账","总账会计","ERP 总账","已核算业务及凭证","财务报表/期间结账","业务账与财务账核对通过","未核差异被结转")]}
+var phases=[
+{name:"识别问题",sub:"WHAT / WHY",intro:"先识别经营目标和真正的业务损失，而不是马上提出采购软件。",output:"问题陈述、业务影响、成功标准、优先级候选",risk:"只听到一句“系统不好用”，没有追问影响、频率和证据。"},
+{name:"业务调研",sub:"AS-IS",intro:"与负责人和关键岗位走通现状链路，核对动作、单据、责任、例外情况。",output:"现状流程、职责、数据来源、问题清单和待确认项",risk:"把会议讨论当成已经批准的正式制度。"},
+{name:"根因分析",sub:"ROOT CAUSE",intro:"区分制度、流程、岗位职责、数据质量、系统功能与组织协作问题。",output:"根因分类、影响面、约束、备选处理方向",risk:"把所有问题都归为系统功能缺失。"},
+{name:"方案设计",sub:"TO-BE",intro:"先比对流程改进、配置、集成、自研与 AI 方案的价值、成本和风险。",output:"目标流程、方案对比、职责、预算、风险评估",risk:"未经系统权限/API/业务规则验证就承诺自动化。"},
+{name:"项目实施",sub:"DELIVERY",intro:"组织启动、计划、资源和变更控制，按阶段交付、测试并推动关键用户参与。",output:"范围/进度/责任矩阵、测试记录、培训及上线准备",risk:"IT 单方面完成开发，但业务未参与验证。"},
+{name:"验收复盘",sub:"OUTCOME",intro:"以业务价值和稳定运行证明成功，同时保留异常、复盘和持续优化闭环。",output:"验收证据、业务指标变化、遗留问题、经验教训",risk:"将“功能已上线”等同于“业务问题已经解决”。"}
+];
+var issues=[
+{name:"系统上线后业务不认可",kind:"需求/流程/参与机制",check:"复盘关键用户参与、AS-IS/TO-BE 是否确认、验收标准与培训情况。"},
+{name:"销售订单和出库对不上",kind:"流程/数据/系统集成",check:"核对单据关联键、分批发货规则、状态、接口失败及手工调整记录。"},
+{name:"AI 项目没有实际效果",kind:"流程/数据/权限",check:"确认高频可规则化场景，核验数据来源、人工复核、权限及价值指标。"}
+];
+var cases=[
+{title:"售后以旧换新业务闭环",status:"曾进行流程方案梳理；业务正式验收未确认",problem:"旧件回收牵涉售后、仓库、财务和多种业务分支，单一系统视角难以说明整体闭环。",approach:"拆分申请/领用、审批、出库、回收、入库、核销、结案，并标明跨岗位交接与待决策规则。",systems:"审批协同与 ERP 库存/成本的职责边界；API 和自动化是否可用需要另行验证。",value:"形成可供讨论的端到端流程和待确认清单；不宣称已经上线、节省成本或完成财务核销。"},
+{title:"销售到回款业务知识地图",status:"教学级合成案例；非具体企业实施成果",problem:"销售、仓储和财务分别记录单据，容易出现“订单结束了但财务未闭环”的认知断层。",approach:"按客户需求、报价、订单、出库、应收、收款核销串起价值流，并识别分批出库与部分回款。",systems:"CRM、ERP、WMS 与财务子系统是候选责任映射，实际企业需逐一核实。",value:"用于展示业务关联、数据对象、责任、规则和异常的分析方法；暂无实测改善指标。"}
+];
+var state={page:"overview",domain:"sales",step:0,view:"business",phase:0,issue:0,caseIndex:0};
+function escapeHTML(x){return String(x).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});}
+function sectionTitle(title,sub){return '<div class="section-title"><div><h2>'+title+'</h2><p>'+sub+'</p></div></div>';}
+function heading(eyebrow,title,sub){return '<div class="section-head"><div class="eyebrow">'+eyebrow+'</div><h2>'+title+'</h2><p>'+sub+'</p></div>';}
+function chip(text,attr,value,active){return '<button type="button" class="pill'+(active?' active':'')+'" data-'+attr+'="'+value+'">'+escapeHTML(text)+'</button>';}
+function overview(){
+return '<div class="hero"><div class="hero-main"><div class="eyebrow">A BUSINESS-FIRST DIGITAL FRAMEWORK</div><h2>从经营问题出发，构建企业数字化业务闭环</h2><p>业务识别是起点，流程治理是基础，系统和 AI 是实现手段，项目管理保证交付，业务验收决定最终价值。</p></div><div class="hero-aside"><h3>我的分析框架 / 3 个核心层次</h3><div class="principle"><strong>01 业务与经营</strong><span>识别目标、痛点、价值链和端到端流程</span></div><div class="principle"><strong>02 流程与项目治理</strong><span>责任、优先级、资源、实施与验收</span></div><div class="principle"><strong>03 系统与智能化</strong><span>ERP / CRM / MES / WMS / PLM / AI</span></div></div></div>'
++'<section class="section">'+sectionTitle('企业业务地图','点击业务领域，进入对应流程与岗位、系统、数据关系。')+'<div class="domain-grid">'+domains.map(function(d){return '<button type="button" data-domain="'+d.id+'" class="domain-card"><span class="domain-icon">'+d.symbol+'</span><span class="domain-title">'+d.name+'</span><span class="domain-desc">'+d.desc+'</span><span class="open">查看业务链路 ↗</span></button>';}).join('')+'</div></section>'
++'<section class="section">'+sectionTitle('两条讲解主线','从“企业如何运转”与“数字化项目如何落地”两个方向展开。')+'<div class="tracks"><button type="button" data-page="process" class="track"><span class="track-id">PATH A / BUSINESS ARCHITECTURE</span><span class="go">↗</span><h3>一笔业务如何走到经营结果？</h3><p>从一个业务动作，一直追踪到岗位、系统、单据、规则与异常。</p><div class="chain">企业全景 → 业务流程 → 节点详情 → 数据与系统</div></button><button type="button" data-page="governance" class="track"><span class="track-id">PATH B / PROJECT DELIVERY</span><span class="go">↗</span><h3>一个经营痛点如何变成可验收成果？</h3><p>不先选技术，而是做诊断、方案取舍、项目交付和验收。</p><div class="chain">业务痛点 → 根因 → 目标方案 → 项目实施 → 验收</div></button></div></section>'
++'<div class="notice">说明：所有流程与系统分工均为教学/脱敏演示，不是某家企业的真实组织架构、系统配置或已核实经营指标。</div>';
+}
+function flow(){
+var d=domains.find(function(x){return x.id===state.domain})||domains[0],steps=flows[d.id]||flows.sales;
+if(state.step>=steps.length)state.step=0;
+var s=steps[state.step],views=[["business","业务"],["role","岗位"],["system","系统"],["data","数据"],["improvement","改进"]];
+var facts={
+business:[["业务动作",s.name],["输入",s.input],["输出",s.output],["关键业务规则",s.rule]],
+role:[["执行/协同岗位",s.role],["职责边界","需由所在企业流程负责人确认"],["交接输入",s.input],["交接输出",s.output]],
+system:[["系统承载（候选）",s.system],["业务能力",s.name],["权威数据来源","需在具体企业确认"],["跨系统关注点",s.risk]],
+data:[["上游输入对象",s.input],["下游输出对象",s.output],["关联/追溯规则","需要业务主键、单据状态和版本证据"],["关键验证",s.rule]],
+improvement:[["风险或异常",s.risk],["现状调研",s.role+"与上下游关键用户确认真实场景"],["解决路径","先判断制度/职责/流程/数据或系统根因"],["验收依据","业务方确认规则并用受控样例验证结果"]]
+};
+return heading("02 / BUSINESS PROCESS",d.name+"业务 · 端到端流程","选择业务领域和业务节点，再切换业务、岗位、系统、数据、改进五个观察角度。")
++'<div class="bar">'+domains.map(function(x){return chip(x.name,"domain-select",x.id,d.id===x.id)}).join('')+'</div>'
++'<div class="panel detail section"><div class="section-title"><div><h2>从左到右追踪业务链路</h2><p>横向滚动查看更多节点；点击节点可查看详情。</p></div><span class="tag blue">模拟结构</span></div><div class="flow-scroll"><div class="flow-row">'+steps.map(function(x,i){return '<div class="flow-wrap"><button type="button" class="flow-step'+(state.step===i?' active':'')+'" data-step="'+i+'"><span class="id">STEP '+String(i+1).padStart(2,"0")+'</span><span class="name">'+escapeHTML(x.name)+'</span><span class="mini">'+escapeHTML(x.role)+'</span></button>'+(i<steps.length-1?'<span class="arrow" aria-hidden="true">→</span>':'')+'</div>';}).join('')+'</div></div></div>'
++'<div class="bar">'+views.map(function(v){return chip(v[1]+"视角","view",v[0],state.view===v[0])}).join('')+'</div>'
++'<div class="two-col"><div class="panel detail"><div class="eyebrow">NODE / '+String(state.step+1).padStart(2,"0")+'</div><h3>'+s.name+' · '+views.find(function(v){return v[0]===state.view})[1]+'视角</h3><div class="detail-grid">'+facts[state.view].map(function(f){return '<div class="fact"><span>'+escapeHTML(f[0])+'</span><strong>'+escapeHTML(f[1])+'</strong></div>'}).join('')+'</div></div><div class="panel insight"><h3>这个节点为什么重要？</h3><p>跨岗位信息交接，既要看到业务动作，也要看到数据与责任。如果只看某一个系统，很容易漏掉流程断点。</p><div class="highlight">重点核查：'+escapeHTML(s.risk)+'</div><p class="method-line">系统名称为能力映射示例，不等于企业已采购、部署或完成集成。</p></div></div>';
+}
+function governance(){
+var p=phases[state.phase],issue=issues[state.issue];
+return heading("03 / PROJECT GOVERNANCE","从问题识别到业务验收","项目管理不只是排计划，而是让业务问题在责任、成本、风险与价值约束下真正被解决。")
++'<div class="section">'+sectionTitle("数字化项目六阶段","点击阶段，查看目标、交付物与常见误区。")+'<div class="grid6">'+phases.map(function(x,i){return '<button type="button" class="phase'+(i===state.phase?' active':'')+'" data-phase="'+i+'"><span class="n">'+String(i+1).padStart(2,"0")+' / '+x.sub+'</span><strong>'+x.name+'</strong><small>点击查看方法与产出 ↗</small></button>';}).join('')+'</div></div>'
++'<div class="two-col section"><div class="panel detail"><div class="eyebrow">DELIVERY PHASE '+String(state.phase+1).padStart(2,"0")+'</div><h3>'+p.name+'</h3><p>'+p.intro+'</p><div class="fact"><span>应交付的东西</span><strong>'+p.output+'</strong></div></div><div class="panel insight"><h3>这一阶段最容易犯的错误</h3><p>'+p.risk+'</p><div class="highlight">判断标准：不是“项目文件写完”，而是关键责任人理解并认可其输入、输出和验收要求。</div></div></div>'
++'<div class="section">'+sectionTitle("从真实问题倒推根因","选择一个典型痛点，观察如何避免“有问题就上系统”。")+'<div class="bar">'+issues.map(function(x,i){return chip(x.name,"issue",i,state.issue===i)}).join('')+'</div><div class="panel detail"><div class="detail-grid"><div class="fact"><span>初步根因方向</span><strong>'+issue.kind+'</strong></div><div class="fact"><span>建议第一步调查</span><strong>'+issue.check+'</strong></div></div><p class="method-line">这是问题诊断的候选假设，不是对某家企业的真实根因结论；应通过访谈、单据和流程证据核实。</p></div></div>';
+}
+function casePage(){
+var c=cases[state.caseIndex];
+return heading("04 / CASE STUDIES","用案例展示方法，而不是堆系统名称","以业务问题、方法、系统关系和可验证成果组织案例；不将讨论方案写成已上线项目。")
++'<div class="case-grid">'+cases.map(function(x,i){return '<button type="button" class="case-button'+(i===state.caseIndex?' active':'')+'" data-case="'+i+'"><span class="eyebrow">CASE 0'+(i+1)+'</span><h3>'+x.title+'</h3><p>'+x.problem+'</p><div class="status">'+x.status+'</div></button>';}).join('')+'</div>'
++'<div class="panel case-story"><h3>'+c.title+'</h3><span class="tag amber">'+c.status+'</span><div class="story-grid" style="margin-top:20px"><div class="story-block"><strong>01 / 业务问题</strong><p>'+c.problem+'</p></div><div class="story-block"><strong>02 / 调研与业务拆解</strong><p>'+c.approach+'</p></div><div class="story-block"><strong>03 / 系统与技术边界</strong><p>'+c.systems+'</p></div><div class="story-block"><strong>04 / 成果与证据状态</strong><p>'+c.value+'</p></div></div><p class="method-line">面试展示原则：明确区分亲自完成的动作、业务方确认的决策、建议方案以及尚未验收的内容。</p></div>';
+}
+function render(){
+document.querySelectorAll("#nav [data-page]").forEach(function(b){b.classList.toggle("active",b.dataset.page===state.page);b.setAttribute("aria-current",b.dataset.page===state.page?"page":"false")});
+app.innerHTML=state.page==="overview"?overview():state.page==="process"?flow():state.page==="governance"?governance():casePage();
+}
+document.addEventListener("click",function(e){
+var b=e.target.closest("button");if(!b)return;
+if(b.hasAttribute("data-page")){state.page=b.dataset.page;render();window.scrollTo({top:0,behavior:"smooth"});return;}
+if(b.hasAttribute("data-domain")){state.domain=b.dataset.domain;state.step=0;state.view="business";state.page="process";render();window.scrollTo({top:0,behavior:"smooth"});return;}
+if(b.hasAttribute("data-domain-select")){state.domain=b.dataset.domainSelect;state.step=0;state.view="business";render();return;}
+if(b.hasAttribute("data-step")){state.step=Number(b.dataset.step);render();return;}
+if(b.hasAttribute("data-view")){state.view=b.dataset.view;render();return;}
+if(b.hasAttribute("data-phase")){state.phase=Number(b.dataset.phase);render();return;}
+if(b.hasAttribute("data-issue")){state.issue=Number(b.dataset.issue);render();return;}
+if(b.hasAttribute("data-case")){state.caseIndex=Number(b.dataset.case);render();return;}
+});
+render();
+})();
+</script>
+</body>
+</html>
