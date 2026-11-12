@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useCallback } from 'react';
 import { createRoot } from 'react-dom/client';
-import ReactFlow, { Background, Controls, Handle, MarkerType, Position } from '@xyflow/react';
+import { ReactFlow, Background, Controls, Handle, MarkerType, Position } from '@xyflow/react';
 import * as Tabs from '@radix-ui/react-tabs';
 import {
   ArrowRight, ArrowUpRight, ChevronRight, Network, Database, Factory,
