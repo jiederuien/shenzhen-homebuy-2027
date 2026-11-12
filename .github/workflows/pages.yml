@@ -3,6 +3,8 @@ name: Deploy Shenzhen Homebuy Dashboard
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,7 +17,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install frontend dependencies
+        run: npm install --prefix portfolio/enterprise-map-v2 --no-audit --no-fund
+      - name: Build enterprise map
+        run: npm run build --prefix portfolio/enterprise-map-v2
   deploy:
+    needs: validate
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -23,10 +40,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install enterprise map dependencies
+        run: npm install --prefix portfolio/enterprise-map-v2 --no-audit --no-fund
+      - name: Build enterprise map
+        run: npm run build --prefix portfolio/enterprise-map-v2
       - name: Prepare static site
         run: |
           mkdir -p _site
           cp -R web/. _site/
+          mkdir -p _site/enterprise-map
+          cp -R portfolio/enterprise-map-v2/dist/. _site/enterprise-map/
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
