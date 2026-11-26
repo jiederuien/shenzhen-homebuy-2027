@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="已部署个人网页清单与源码位置索引">
+<meta name="theme-color" content="#f4f7fb">
+<title>网页索引 · 已部署网站</title>
+<style>
+:root{color-scheme:light;--ink:#203047;--muted:#718096;--line:#e4eaf1;--blue:#3269c8;--pale:#edf4ff;--green:#eaf5ef;--bg:#f4f7fb;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif}
+header{background:linear-gradient(115deg,#fff 10%,#edf4ff 100%);border-bottom:1px solid var(--line);padding:34px max(24px,calc((100% - 1120px)/2)) 30px}
+.brand{font-size:13px;color:var(--blue);font-weight:750;letter-spacing:.08em}.title-row{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-top:12px}h1{font-size:clamp(28px,4vw,42px);line-height:1.2;margin:0;letter-spacing:-.04em}.subtitle{color:var(--muted);margin:9px 0 0}.count{white-space:nowrap;border:1px solid #d8e5f7;background:#fff;border-radius:999px;padding:7px 13px;color:#365f9e;font-size:14px;font-weight:700}
+main{max-width:1120px;margin:30px auto 60px;padding:0 24px}.intro{display:flex;justify-content:space-between;gap:24px;align-items:center;margin-bottom:20px}.intro p{margin:0;color:var(--muted)}.search{width:min(300px,100%);padding:11px 14px;border:1px solid #d9e1eb;border-radius:11px;background:white;font:inherit;outline:none}.search:focus{border-color:#8eafe4;box-shadow:0 0 0 3px #dce9ff}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:22px;box-shadow:0 5px 18px #20304708;display:flex;flex-direction:column;min-height:252px}.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.kind{font-size:12px;color:#55729b;background:var(--pale);padding:5px 10px;border-radius:999px;font-weight:700}.state{font-size:12px;color:#477455;background:var(--green);padding:5px 10px;border-radius:999px}.card h2{font-size:21px;margin:16px 0 5px}.desc{color:#64758b;margin:0 0 18px;min-height:48px}.meta{display:grid;grid-template-columns:90px 1fr;gap:7px 12px;border-top:1px solid #edf0f4;padding-top:14px;font-size:13px}.meta dt{color:#8794a5}.meta dd{margin:0;color:#485c74;overflow-wrap:anywhere}.actions{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:18px}.open{display:inline-flex;align-items:center;text-decoration:none;background:var(--blue);color:white;border-radius:9px;padding:9px 14px;font-weight:700;font-size:14px}.open:hover{background:#2858a7}.path{font-size:12px;color:#8591a0}.note{margin-top:22px;border:1px solid #e2e9f2;background:#fff;border-radius:13px;padding:15px 18px;color:#687a90;font-size:13px}.note strong{color:#415a7b}footer{max-width:1120px;padding:0 24px 35px;margin:auto;color:#8b98a8;font-size:12px}
+@media(max-width:680px){header{padding:25px 20px}.title-row{align-items:start;flex-direction:column;gap:12px}main{margin-top:22px;padding:0 16px}.intro{align-items:stretch;flex-direction:column}.search{width:100%}.grid{grid-template-columns:1fr;gap:12px}.card{padding:18px;min-height:0}.desc{min-height:0}.actions{gap:8px}}
+</style>
+</head>
+<body>
+<header><div class="brand">PERSONAL WEB DIRECTORY · 个人网页导航</div><div class="title-row"><div><h1>已部署网页</h1><p class="subtitle">集中查看每个网站的用途、网址和对应源码位置。</p></div><span class="count">4 个已发布网页</span></div></header>
+<main>
+<div class="intro"><p>点击“打开网页”直接访问；源码映射帮助你找到维护位置。</p><input class="search" id="search" type="search" placeholder="搜索网页名称或用途" aria-label="搜索网页名称或用途"></div>
+<section class="grid" id="sites" aria-label="已发布网页清单">
+<article class="card" data-search="深圳买房 地图 驾驶舱 板块 决策"><div class="card-top"><span class="kind">住房决策</span><span class="state">已发布</span></div><h2>深圳买房地图驾驶舱</h2><p class="desc">查看深圳关注板块与购房决策信息，作为持续研究入口。</p><dl class="meta"><dt>网页地址</dt><dd>jiederuien.github.io/shenzhen-homebuy-2027/</dd><dt>源码位置</dt><dd>shenzhen-homebuy-2027 / web/index.html</dd></dl><div class="actions"><a class="open" href="https://jiederuien.github.io/shenzhen-homebuy-2027/" target="_blank" rel="noopener">打开网页 ↗</a><span class="path">GitHub Pages</span></div></article>
+<article class="card" data-search="企业数字化 全景 业务流程 项目治理 架构"><div class="card-top"><span class="kind">企业数字化</span><span class="state">已发布</span></div><h2>企业数字化全景</h2><p class="desc">用业务流程、系统关系和项目治理视图讲解企业数字化方法。</p><dl class="meta"><dt>网页地址</dt><dd>jiederuien.github.io/shenzhen-homebuy-2027/enterprise-map/</dd><dt>源码位置</dt><dd>AI CIO 源码：enterprise-map-v2；发布副本：shenzhen-homebuy-2027 / web/enterprise-map/</dd></dl><div class="actions"><a class="open" href="https://jiederuien.github.io/shenzhen-homebuy-2027/enterprise-map/" target="_blank" rel="noopener">打开网页 ↗</a><span class="path">GitHub Pages</span></div></article>
+<article class="card" data-search="信息化 岗位实践 ERP 管理员 治理 路线图"><div class="card-top"><span class="kind">岗位与治理</span><span class="state">已发布</span></div><h2>信息化实践路线图</h2><p class="desc">从 ERP 管理员岗位实践与企业信息化全景两个角度查看步骤建议。</p><dl class="meta"><dt>网页地址</dt><dd>jiederuien.github.io/shenzhen-homebuy-2027/it-governance/</dd><dt>源码位置</dt><dd>shenzhen-homebuy-2027 / web/it-governance/index.html</dd></dl><div class="actions"><a class="open" href="https://jiederuien.github.io/shenzhen-homebuy-2027/it-governance/" target="_blank" rel="noopener">打开网页 ↗</a><span class="path">GitHub Pages</span></div></article>
+<article class="card" data-search="飞针 制造 销售 研发 采购 生产 仓储 财务 流程"><div class="card-top"><span class="kind">制造业务流程</span><span class="state">已发布</span></div><h2>飞针设备制造流程</h2><p class="desc">展示从销售到交付、售后与财务的制造业务流程理解。</p><dl class="meta"><dt>网页地址</dt><dd>deruienjie.github.io/flying-probe-business-process/</dd><dt>源码位置</dt><dd>deruienjie/flying-probe-business-process 仓库</dd></dl><div class="actions"><a class="open" href="https://deruienjie.github.io/flying-probe-business-process/" target="_blank" rel="noopener">打开网页 ↗</a><span class="path">GitHub Pages</span></div></article>
+</section>
+<div class="note"><strong>网址维护说明：</strong>网址由 GitHub 用户名、仓库名和网页路径组成。只要这些名称及 Pages 发布设置保持不变，网址通常不变；更改仓库名、账号名或路径时，网址可能变化。此清单记录的是目前确认的公开网页。</div>
+</main><footer>网页索引 · 更新于 2026-11-26 · 此页面只列网站入口与源码映射，不存放业务数据。</footer>
+<script>
+const search=document.getElementById('search');const cards=[...document.querySelectorAll('.card')];search.addEventListener('input',()=>{const q=search.value.trim().toLowerCase();cards.forEach(card=>{card.hidden=!card.dataset.search.toLowerCase().includes(q)||!card.innerText.toLowerCase().includes(q)})});
+</script>
+</body></html>
