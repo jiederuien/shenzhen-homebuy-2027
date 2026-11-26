@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#142c48">
+<title>信息化岗位实践与全景路线</title>
+<style>
+:root{--navy:#142c48;--navy2:#203f61;--blue:#2866c5;--ink:#182b40;--muted:#627489;--line:#e1e8f0;--paper:#fff;--bg:#f3f6fa;--pale:#eaf1fb;--shadow:0 10px 28px #1a38520d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif}.layout{min-height:100vh;display:grid;grid-template-columns:245px 1fr}.side{background:var(--navy);color:#fff;padding:30px 18px;display:flex;flex-direction:column}.brand{padding:4px 10px 25px;border-bottom:1px solid #ffffff26}.brand-mark{font-size:13px;color:#a9c6eb;letter-spacing:.1em}.brand h1{font-size:20px;line-height:1.35;margin:9px 0 0}.nav{display:grid;gap:9px;padding-top:24px}.nav button{border:0;text-align:left;color:#d8e3ef;background:transparent;border-radius:10px;padding:14px 13px;font:inherit;cursor:pointer;display:flex;align-items:center;gap:12px}.nav button:hover{background:#ffffff12}.nav button[aria-selected="true"]{background:#ffffff1d;color:#fff;box-shadow:inset 3px 0 #77aaff}.nav .number{width:25px;height:25px;border-radius:8px;background:#ffffff18;display:grid;place-items:center;font-size:13px}.side-note{margin-top:auto;color:#aebfd2;font-size:13px;padding:14px 10px 0}.main{min-width:0;padding:36px clamp(22px,4vw,60px) 60px;max-width:1700px;width:100%}.head{display:flex;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:27px}.kicker{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.08em}.head h2{font-size:29px;line-height:1.25;margin:6px 0}.head p{margin:0;color:var(--muted)}.pill{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 13px;color:#53677d;font-size:13px;white-space:nowrap}.pill strong{color:#9a5d12}.notice{background:#fff8eb;border:1px solid #f0dfc3;border-radius:10px;padding:12px 15px;font-size:14px;color:#785827;margin-bottom:24px}.steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;align-items:stretch}.step{background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:17px 16px 16px;box-shadow:var(--shadow);position:relative;min-width:0}.step-top{display:flex;align-items:center;gap:10px;margin-bottom:14px}.step-num{flex:none;width:31px;height:31px;border-radius:10px;background:var(--pale);color:#2255a0;display:grid;place-items:center;font-size:14px;font-weight:700}.step h3{font-size:16px;line-height:1.35;margin:0}.step ul{list-style:none;padding:0;margin:0;display:grid;gap:11px}.step li{border-top:1px solid #edf1f5;padding-top:10px;font-size:14px;line-height:1.55;color:#43566c}.step li:first-child{border-top:0;padding-top:0}.step li:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#6c93ca;margin:0 8px 2px 0}.foot{margin-top:22px;color:var(--muted);font-size:13px}.view{display:none}.view.active{display:block}.footer{margin-top:35px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:#8290a0}
+@media(max-width:1250px){.steps{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.layout{grid-template-columns:1fr}.side{padding:15px 16px 12px}.brand{padding:2px 3px 12px}.brand h1{font-size:17px}.brand-mark{font-size:11px}.nav{display:flex;gap:8px;padding-top:11px}.nav button{flex:1;padding:9px 11px;font-size:14px}.side-note{display:none}.main{padding:22px 15px 38px}.head{display:block;margin-bottom:18px}.head h2{font-size:24px}.pill{display:inline-block;margin-top:12px}.steps{grid-template-columns:1fr;gap:11px}.step{padding:15px 16px}.step-top{margin-bottom:9px}.step ul{gap:7px}.step li{padding-top:7px}.step li:first-child{padding-top:0}}
+/* Each phase is a vertical row; its three items share the row on wide screens. */
+.steps{grid-template-columns:minmax(0,1fr)}
+.step{display:grid;grid-template-columns:minmax(190px,.72fr) minmax(0,2fr);align-items:center;gap:20px;padding:16px 20px}
+.step-top{margin:0}
+.step ul{grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.step li,.step li:first-child{border-top:0;border-left:1px solid #e8edf3;padding:4px 12px}
+.step li:first-child{border-left:0;padding-left:0}
+@media(max-width:760px){.steps{grid-template-columns:1fr}.step{grid-template-columns:minmax(0,1fr);gap:10px;padding:15px 16px}.step-top{margin:0}.step ul{grid-template-columns:1fr;gap:0}.step li,.step li:first-child{border-left:0;border-top:1px solid #edf1f5;padding:8px 0}.step li:first-child{border-top:0;padding-top:0}}
+/* Refined light timeline treatment with the two view tabs across the top. */
+:root{--navy:#f8fbff;--navy2:#eaf2fb;--blue:#245fae;--ink:#172b41;--muted:#536980;--line:#dce6ef;--paper:#fff;--bg:#f4f8fc;--pale:#e8f1fd;--shadow:0 7px 22px #2447680d}
+.layout{display:block;min-height:100vh}.side{position:sticky;top:0;z-index:5;display:flex;flex-direction:row;align-items:center;gap:26px;padding:11px clamp(16px,4vw,54px);color:var(--ink);background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);box-shadow:0 4px 14px #24476808}.brand{padding:0 20px 0 0;border:0;border-right:1px solid var(--line);white-space:nowrap}.brand-mark{color:#426b9c}.brand h1{font-size:16px;margin:2px 0 0}.nav{display:flex;gap:8px;padding:0}.nav button{color:#435a72;padding:9px 14px;border:1px solid transparent}.nav button:hover{background:#f2f7fd}.nav button[aria-selected="true"]{background:#eaf2fc;color:#1e4f8d;border-color:#d7e5f7;box-shadow:none}.nav .number{background:#dce9f8;color:#315e94}.side-note{display:none}.main{margin:0 auto;max-width:1420px;padding:34px clamp(18px,5vw,72px) 58px}.head h2{font-size:28px}.notice{background:#f2f8ff;border-color:#d9e8f7;color:#355575}.pill{border-color:#d9e5f1;background:#fff}.pill strong{color:#397755}.steps{grid-template-columns:minmax(0,1fr);gap:11px;position:relative}.step{grid-template-columns:minmax(210px,.72fr) minmax(0,1.8fr);gap:28px;padding:17px 22px;border-color:#e2eaf2;border-radius:12px;box-shadow:0 4px 15px #29496b09}.step-top{position:relative;align-self:stretch;align-items:center}.step-num{background:#eaf2fc;color:#24599b;border:1px solid #dbe8f6}.step h3{color:#1b334e}.step ul{grid-template-columns:minmax(0,1fr);gap:0;counter-reset:substep}.step li,.step li:first-child{counter-increment:substep;display:flex;align-items:baseline;gap:11px;border:0;border-left:1px solid #dfebf4;padding:5px 0 5px 15px;color:#30465d}.step li:before{content:counter(substep) ".";display:inline-block;flex:none;width:22px;height:auto;margin:0;color:#3570b5;background:none;font-weight:700;font-size:14px}.step:nth-child(even){background:linear-gradient(100deg,#fff 0%,#fbfdff 100%)}.step:nth-child(3n){background:linear-gradient(100deg,#fff 0%,#fbfefc 100%)}.foot{color:#50677d}.footer{color:#63788e}
+@media(max-width:760px){.side{position:sticky;display:block;padding:10px 14px 9px}.brand{padding:0 0 7px;border-right:0}.brand h1{font-size:15px}.nav{display:flex;overflow:auto;gap:6px;padding:6px 0 0}.nav button{flex:none;padding:7px 10px}.main{padding:20px 14px 38px}.head h2{font-size:23px}.steps{grid-template-columns:1fr}.step{grid-template-columns:1fr;gap:8px;padding:14px}.step-top{align-items:center}.step ul{grid-template-columns:1fr}.step li,.step li:first-child{border:0;padding:4px 0}.step li:before{width:22px}}
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="side">
+    <div class="brand"><div class="brand-mark">岗位成长 × 企业治理</div><h1>信息化实践路线图</h1></div>
+    <nav class="nav" aria-label="选择视图" role="tablist">
+      <button type="button" role="tab" id="tab-role" aria-controls="view-role" aria-selected="true"><span class="number">01</span>岗位实践</button>
+      <button type="button" role="tab" id="tab-map" aria-controls="view-map" aria-selected="false"><span class="number">02</span>信息化全景</button>
+    </nav>
+    <div class="side-note">两条视角，一条实践路径<br>从做好岗位工作，逐步建立企业信息化治理。</div>
+  </aside>
+  <main class="main">
+    <section class="view active" id="view-role" role="tabpanel" aria-labelledby="tab-role">
+      <header class="head"><div><div class="kicker">PRACTICE · ROLE</div><h2>岗位实践</h2><p>先把日常工作做好，再通过持续沟通和复盘建立改进能力。</p></div><div class="pill">定位：<strong>建议路线，职责与授权待确认</strong></div></header>
+      <div class="notice">以下内容是岗位实践建议。具体工作边界、可自行处理事项、请示要求和汇报关系，以入职后与直属上级确认的安排为准。</div>
+      <div class="steps">
+        <article class="step"><div class="step-top"><span class="step-num">01</span><h3>对齐岗位职责</h3></div><ul><li>确认工作内容</li><li>确认可自行处理事项</li><li>确认请示与汇报方式</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">02</span><h3>熟悉 ERP 现状</h3></div><ul><li>了解系统负责人和服务商</li><li>了解各部门使用的功能</li><li>熟悉权限、操作与问题处理</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">03</span><h3>做好日常管理</h3></div><ul><li>接收和处理用户问题</li><li>协助处理账号与权限事项</li><li>跟进系统异常和服务商</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">04</span><h3>记录问题</h3></div><ul><li>记录问题现象和影响</li><li>识别反复出现的问题</li><li>整理可能原因，留待核实</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">05</span><h3>主动与领导沟通</h3></div><ul><li>选择值得讨论的问题</li><li>说明现象并提出建议</li><li>确认优先级和职责边界</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">06</span><h3>持续改善复盘</h3></div><ul><li>在授权范围内处理问题</li><li>请使用人验证处理结果</li><li>记录结果并跟进后续</li></ul></article>
+      </div>
+      <p class="foot">建议从熟悉职责和 ERP 使用现状开始，逐步形成问题记录、沟通和闭环习惯。</p>
+    </section>
+    <section class="view" id="view-map" role="tabpanel" aria-labelledby="tab-map" hidden>
+      <header class="head"><div><div class="kicker">GOVERNANCE · ROADMAP</div><h2>信息化全景</h2><p>从目标授权、摸清现状，到小范围验证和持续改进。</p></div><div class="pill">定位：<strong>建议路线，现状待调查</strong></div></header>
+      <div class="notice">这是一条建议的建设顺序，不代表公司已经批准或实施。每一步应结合真实业务、责任人、资源与管理授权确定。</div>
+      <div class="steps">
+        <article class="step"><div class="step-top"><span class="step-num">01</span><h3>目标与授权</h3></div><ul><li>了解管理目标</li><li>确认牵头人和拍板人</li><li>明确范围与资源</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">02</span><h3>现状调查</h3></div><ul><li>了解主要业务</li><li>了解系统使用情况</li><li>整理痛点和待核实事项</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">03</span><h3>职责与流程</h3></div><ul><li>厘清业务、流程、IT 分工</li><li>梳理环节和岗位交接</li><li>明确异常处理责任</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">04</span><h3>需求与变更</h3></div><ul><li>建立统一需求收集方式</li><li>评估价值、影响和优先级</li><li>明确审批、测试、上线与验收</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">05</span><h3>试点落地</h3></div><ul><li>选择一条合适的业务链</li><li>由业务、流程、IT 确认方案</li><li>批准后小范围实施</li></ul></article>
+        <article class="step"><div class="step-top"><span class="step-num">06</span><h3>验收与改善</h3></div><ul><li>请业务负责人确认结果</li><li>对比实施前后的实际指标</li><li>决定调整、继续或推广</li></ul></article>
+      </div>
+      <p class="foot">推进原则：先确认权责与现状，再定机制和试点；依据验收证据决定下一步。</p>
+    </section>
+    <div class="footer">本地演示原型 · 仅供讨论 · 不连接业务系统、不保存填写数据</div>
+  </main>
+</div>
+<script>
+const tabs=[...document.querySelectorAll('[role="tab"]')];
+tabs.forEach(tab=>tab.addEventListener('click',()=>{
+  tabs.forEach(t=>{const selected=t===tab;t.setAttribute('aria-selected',String(selected));document.getElementById(t.getAttribute('aria-controls')).classList.toggle('active',selected);document.getElementById(t.getAttribute('aria-controls')).hidden=!selected;});
+}));
+</script>
+</body>
+</html>
