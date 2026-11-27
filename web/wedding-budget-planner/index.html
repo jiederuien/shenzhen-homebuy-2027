@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f3">
+  <meta name="description" content="婚礼与购车资金预算私人看板">
+  <title>婚礼资金规划</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #19372d;
+      --ink-soft: #53645c;
+      --green: #37684f;
+      --green-wash: #e8f0ea;
+      --orange: #c96c2e;
+      --orange-wash: #fff1e7;
+      --line: #e5e9e3;
+      --paper: #fff;
+      --canvas: #f6f7f3;
+      --muted: #77827b;
+      --shadow: 0 8px 28px rgba(33, 57, 45, .045);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); }
+    .app { min-height: 100vh; display: grid; grid-template-columns: 230px minmax(0, 1fr); }
+    aside {
+      background: #fcfdfb; border-right: 1px solid var(--line); padding: 28px 18px;
+      display: flex; flex-direction: column; gap: 34px;
+    }
+    .brand { display: flex; align-items: center; gap: 11px; padding: 0 8px; font-weight: 700; letter-spacing: .02em; }
+    .shield {
+      width: 36px; height: 36px; display: grid; place-items: center; border-radius: 12px;
+      background: var(--green-wash); color: var(--green); font-size: 18px;
+    }
+    nav { display: grid; gap: 7px; }
+    nav a { text-decoration: none; color: var(--ink-soft); padding: 12px 13px; border-radius: 11px; font-size: 14px; }
+    nav a[aria-current="page"] { background: var(--green); color: #fff; font-weight: 650; }
+    .side-note { margin-top: auto; color: var(--muted); font-size: 12px; line-height: 1.65; padding: 0 8px; }
+    main { width: min(1160px, 100%); margin: 0 auto; padding: 40px 44px 56px; }
+    .topline { display:flex; justify-content:space-between; align-items:center; margin-bottom: 31px; }
+    .crumb { color: var(--muted); font-size: 13px; }
+    .private-pill { display:flex; gap:8px; align-items:center; color:var(--green); font-size:13px; background:var(--green-wash); border-radius:99px; padding:8px 12px; }
+    .dot { width:7px; height:7px; border-radius:50%; background:#4e8a61; }
+    .heading { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:25px; }
+    h1 { font-size: clamp(27px, 3vw, 36px); line-height:1.15; letter-spacing:-.035em; margin:0 0 9px; }
+    .subtitle { color:var(--ink-soft); font-size:15px; margin:0; }
+    .as-of { color:var(--muted); font-size:12px; white-space:nowrap; }
+    .summary {
+      background:linear-gradient(110deg,#fff 35%,#f1f6f0); border:1px solid var(--line);
+      border-radius:18px; padding:27px 30px; display:grid; grid-template-columns:1fr 1px 1fr;
+      align-items:center; gap:30px; box-shadow:var(--shadow); margin-bottom:20px;
+    }
+    .summary-label { font-size:14px; color:var(--ink-soft); margin:0 0 8px; }
+    .big-amount { color:var(--orange); font-size:clamp(36px,5vw,52px); font-weight:760; letter-spacing:-.045em; line-height:1; }
+    .summary-caption { margin:9px 0 0; color:var(--muted); font-size:13px; }
+    .divider { height:72px; background:var(--line); }
+    .summary-side { display:grid; gap:12px; }
+    .mini-stat { display:flex; justify-content:space-between; gap:18px; align-items:baseline; }
+    .mini-stat span { color:var(--ink-soft); font-size:14px; }
+    .mini-stat strong { font-size:22px; letter-spacing:-.02em; }
+    .cards { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-bottom:20px; }
+    .card, .panel { background:var(--paper); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); }
+    .card { padding:20px; min-height:144px; border-top:3px solid var(--green); }
+    .card.warm { border-top-color:var(--orange); background:#fffaf6; }
+    .card-label { font-size:14px; color:var(--ink-soft); margin-bottom:17px; display:flex; align-items:center; gap:9px; }
+    .card-icon { display:inline-grid; place-items:center; width:27px; height:27px; border-radius:8px; color:var(--green); background:var(--green-wash); font-size:14px; font-weight:700; }
+    .warm .card-icon { color:var(--orange); background:#ffeadb; }
+    .card-value { color:var(--orange); font-size:28px; font-weight:750; letter-spacing:-.03em; }
+    .card-hint { color:var(--muted); font-size:12px; line-height:1.55; margin-top:6px; }
+    .content-grid { display:grid; grid-template-columns:1.35fr 1fr; gap:16px; margin-bottom:18px; }
+    .panel { padding:23px 24px; }
+    .panel-head { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:20px; }
+    h2 { font-size:17px; margin:0; letter-spacing:-.02em; }
+    .tag { border-radius:99px; background:#f1f4f0; padding:6px 9px; font-size:11px; color:var(--muted); }
+    .bar-row { display:grid; grid-template-columns:minmax(100px,1fr) auto; align-items:center; gap:12px; margin:15px 0; font-size:13px; }
+    .bar-name { color:var(--ink-soft); }
+    .bar-value { min-width:89px; text-align:right; color:var(--ink); font-weight:650; }
+    .funding-note { display:flex; gap:11px; align-items:flex-start; margin-top:19px; padding:13px 14px; border-radius:11px; background:#fff5dc; color:#694d19; font-size:13px; line-height:1.6; }
+    .funding-note strong { color:#523b13; }
+    .budget-control { margin-top:19px; padding:16px; border:1px solid var(--line); border-radius:12px; background:#fbfcfa; }
+    .budget-control-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:10px; }
+    .budget-control label { font-size:14px; font-weight:650; }
+    .budget-control output { color:var(--orange); font-size:20px; font-weight:750; }
+    .budget-control input[type="range"] { width:100%; accent-color:var(--green); }
+    .range-ends { display:flex; justify-content:space-between; color:var(--muted); font-size:12px; }
+    .temporary-note { margin:8px 0 0; color:var(--muted); font-size:12px; line-height:1.5; }
+    .check-list { display:grid; gap:11px; }
+    .check-item { display:flex; align-items:flex-start; gap:11px; color:var(--ink-soft); font-size:13px; line-height:1.55; }
+    .check { width:17px; height:17px; flex:0 0 17px; border:1.5px solid #9ab2a0; border-radius:5px; margin-top:1px; background:#fff; }
+    .subtle { color:var(--muted); }
+    .footnote { font-size:12px; line-height:1.7; color:var(--muted); padding: 4px 3px; }
+    .footnote a { color:var(--green); text-underline-offset:3px; }
+    @media (max-width: 960px) {
+      .app { grid-template-columns: 190px minmax(0,1fr); }
+      aside { padding-inline:13px; }
+      main { padding:32px 24px 44px; }
+      .cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .content-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 640px) {
+      .app { display:block; }
+      aside { padding:13px 16px; border-right:0; border-bottom:1px solid var(--line); gap:13px; }
+      .brand { padding:0; }
+      nav { display:flex; overflow-x:auto; gap:6px; padding-bottom:2px; }
+      nav a { flex:0 0 auto; padding:9px 12px; font-size:13px; }
+      .side-note { display:none; }
+      main { padding:25px 16px 38px; }
+      .topline { margin-bottom:24px; }
+      .heading { display:block; }
+      .as-of { margin-top:12px; }
+      .summary { grid-template-columns:1fr; gap:18px; padding:22px; }
+      .divider { height:1px; width:100%; }
+      .mini-stat strong { font-size:19px; }
+      .cards { gap:10px; }
+      .card { min-height:132px; padding:16px; }
+      .card-value { font-size:24px; }
+      .bar-row { grid-template-columns:67px 1fr auto; gap:8px; font-size:12px; }
+      .bar-value { min-width:75px; font-size:12px; }
+      .panel { padding:19px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside aria-label="主导航">
+      <div class="brand"><span class="shield" aria-hidden="true">✓</span><span>私人空间</span></div>
+      <nav>
+        <a href="#overview" aria-current="page">资金总览</a>
+        <a href="#breakdown">支出估算</a>
+        <a href="#confirm">待确认</a>
+        <a href="#source">记录说明</a>
+      </nav>
+      <p class="side-note">仅供个人查看<br>金额为当前估算，后续可继续调整。</p>
+    </aside>
+    <main id="overview">
+      <div class="topline">
+        <span class="crumb">个人规划　/　家庭资金</span>
+        <span class="private-pill"><span class="dot" aria-hidden="true"></span>私人页面</span>
+      </div>
+      <header class="heading">
+        <div>
+          <h1>婚礼资金规划</h1>
+          <p class="subtitle">先记下现有估算，之后再一起商量怎么安排。</p>
+        </div>
+        <span class="as-of">记录更新于 2026年11月24日</span>
+      </header>
+
+      <section class="summary" aria-label="预算概览">
+        <div>
+          <p class="summary-label">父亲预计可提供的总额</p>
+          <div class="big-amount">约 90 万</div>
+          <p class="summary-caption">家庭资金估算，尚未到账确认</p>
+        </div>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="summary-side">
+          <div class="mini-stat"><span>当前试算支出</span><strong id="totalSpend">38.8–40.8 万</strong></div>
+          <div class="mini-stat"><span>总额内另有一笔资金</span><strong>50 万</strong></div>
+          <p class="summary-caption">50 万已包含在约 90 万内；用途待定，不重复加算。</p>
+        </div>
+      </section>
+
+      <section class="cards" aria-label="支出分项">
+        <article class="card">
+          <div class="card-label"><span class="card-icon" aria-hidden="true">礼</span>彩礼</div>
+          <div class="card-value">18.8 万</div>
+          <div class="card-hint">当前估算</div>
+        </article>
+        <article class="card">
+          <div class="card-label"><span class="card-icon" aria-hidden="true">宴</span>其他婚礼支出</div>
+          <div class="card-value">3–4 万</div>
+          <div class="card-hint">饭钱、礼钱等具体用途待确认</div>
+        </article>
+        <article class="card">
+          <div class="card-label"><span class="card-icon" aria-hidden="true">金</span>五金和戒指</div>
+          <div class="card-value">7–8 万</div>
+          <div class="card-hint">尚未包含在其他支出估算中</div>
+        </article>
+        <article class="card warm">
+          <div class="card-label"><span class="card-icon" aria-hidden="true">车</span>购车预算</div>
+          <div class="card-value">目标约 10 万</div>
+          <div class="card-hint">最高 15 万；滑块为当前试算值</div>
+        </article>
+      </section>
+
+      <div class="content-grid">
+        <section class="panel" id="breakdown">
+          <div class="panel-head"><h2>目前已列支出</h2><span class="tag">估算范围</span></div>
+          <div class="bar-row"><span class="bar-name">彩礼</span><span class="bar-value">18.8 万</span></div>
+          <div class="bar-row"><span class="bar-name">其他婚礼</span><span class="bar-value">3–4 万</span></div>
+          <div class="bar-row"><span class="bar-name">五金戒指</span><span class="bar-value">7–8 万</span></div>
+          <div class="bar-row"><span class="bar-name">购车预算</span><span class="bar-value" id="carBudgetRow">约 10 万（上限15万）</span></div>
+          <div class="budget-control">
+            <div class="budget-control-head"><label for="carBudget">试算购车金额</label><output id="carBudgetOutput" for="carBudget">10 万</output></div>
+            <input id="carBudget" type="range" min="10" max="15" step="0.5" value="10" aria-describedby="temporaryNote">
+            <div class="range-ends"><span>目标 10 万</span><span>上限 15 万</span></div>
+            <p class="temporary-note" id="temporaryNote">仅当前页面临时试算，不会保存。</p>
+          </div>
+          <div class="funding-note"><span aria-hidden="true">ⓘ</span><span>婚礼分项约 <strong>28.8–30.8 万</strong>；加上当前选定的购车金额后，支出约 <strong id="spendRange">38.8–40.8 万</strong>。购车在10万目标至15万上限之间试算；尚未包含其他未列项目，不是完整预算。</span></div>
+        </section>
+        <section class="panel" id="confirm">
+          <div class="panel-head"><h2>之后一起确认</h2><span class="tag">待讨论</span></div>
+          <div class="check-list">
+            <div class="check-item"><span class="check" aria-hidden="true"></span><span>额外 3–4 万具体用于什么</span></div>
+            <div class="check-item"><span class="check" aria-hidden="true"></span><span>五金、戒指预算是否需要细分</span></div>
+            <div class="check-item"><span class="check" aria-hidden="true"></span><span>购车目标价及最终落地预算</span></div>
+            <div class="check-item"><span class="check" aria-hidden="true"></span><span>总额内的 50 万具体如何安排</span></div>
+          </div>
+        </section>
+      </div>
+
+      <footer class="footnote" id="source">
+        这是截至 2026年11月24日的静态预算快照，不代表任何款项已实际到账，也不会自动同步 GitHub。跨设备长期记录以
+        <a href="https://github.com/jiederuien/personal-ai-os-shared-context/blob/main/personal/finance/README.md" target="_blank" rel="noopener noreferrer">个人财务笔记</a>
+        为准；后续确认后再更新页面。
+      </footer>
+    </main>
+  </div>
+  <script>
+    const carBudget = document.getElementById('carBudget');
+    const formatAmount = value => Number.isInteger(value) ? String(value) : value.toFixed(1);
+    function updateBudgetEstimate() {
+      const car = Number(carBudget.value);
+      const low = 28.8 + car;
+      const high = 30.8 + car;
+      const carLabel = `${formatAmount(car)} 万`;
+      document.getElementById('carBudgetOutput').textContent = carLabel;
+      document.getElementById('carBudgetRow').textContent = `当前试算 ${carLabel}`;
+      const spend = `${low.toFixed(1)}–${high.toFixed(1)} 万`;
+      document.getElementById('spendRange').textContent = spend;
+      document.getElementById('totalSpend').textContent = spend;
+    }
+    carBudget.addEventListener('input', updateBudgetEstimate);
+  </script>
+</body>
+</html>
